@@ -3,9 +3,8 @@ import { useAuth } from "@/hooks";
 
 export default function Index() {
 
-  const { user, layout } = useAuth();
-  
-  console.log(user);
+  const { user, logout } = useAuth();
+
   return (
     <div>
       <h2>Games Shop</h2>
@@ -18,10 +17,14 @@ export default function Index() {
           <p>
             Hola, {user.firstname} {user.lastname}
           </p>
-          <Button>Cerrar sesión</Button>
+          <Button onClick={logout}>Cerrar sesión</Button>
         </div>
       ) : (
-        <div/>
+        <div>
+          <a href="/join/sign-in">
+            Iniciar sesión
+          </a>
+        </div>
       )}
     </div>
 
