@@ -48,6 +48,14 @@ export function AuthProvider(props) {
         setUser(null);
     };
 
+    //recoge la clave que quiere actualiza, y el nuevo valor
+    const updateUser = (key, value) => {
+      setUser({
+        ...user,
+        [key]: value,
+      });
+    };
+
     const data = {
         accessToken: token,
         user,
