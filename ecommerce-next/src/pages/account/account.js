@@ -4,7 +4,8 @@ import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
 import {
-  Info
+  Info,
+  Settings,
 } from "@/components/Account";
 
 
@@ -51,7 +52,7 @@ export default function account() {
       menuItem: { icon: "settings", content: "Ajustes" },
       render: () => (
         <Tab.Pane attached={false}>
-          <p>Mis ajustes...</p>
+          <Settings.ChangeNameForm />
         </Tab.Pane>
       ),
     },
