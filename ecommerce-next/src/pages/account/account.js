@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./account.module.scss";
 import { Tab } from "semantic-ui-react";
 import { BasicLayout } from "@/layouts";
@@ -14,16 +15,14 @@ import {
 export default function account() {
   const { user, logout } = useAuth();
   const router = useRouter();
+  const [reload, setReload] = useState(false);
 
   if (!user) {
     router.push("/");
     return null;
   }
 
-  const onLogout = () => {
-    logout();
-    router.push("/")
-  }
+  const onReload = () => setReload((prevState) => !prevState)
 
   const panes = [
     {
@@ -46,7 +45,8 @@ export default function account() {
       menuItem: "Direcciones",
       render: () => (
         <Tab.Pane attached={false}>
-          <Address.AddAddress/>
+          <Address.AddAddress onReload={onReload}/>
+          <Address.ListAddresses reload={reload} onReload={onReload}/>
           <Separator height={80}/>
         </Tab.Pane>
       ),
