@@ -12,7 +12,6 @@ export function Menu(props) {
     const { isOpenSearch } = props;
     const [platforms, setPlatforms] = useState(null);
     const [showSearch, setShowSearch] = useState(isOpenSearch);
-    console.log(showSearch);
     const openCloseSearch = () => setShowSearch((prevState) => !prevState);
 
     useEffect(() => {

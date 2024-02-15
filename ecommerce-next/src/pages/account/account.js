@@ -7,6 +7,7 @@ import { Separator  } from "@/components/Shared";
 import {
   Info,
   Settings,
+  Address,
 } from "@/components/Account";
 
 
@@ -45,17 +46,19 @@ export default function account() {
       menuItem: "Direcciones",
       render: () => (
         <Tab.Pane attached={false}>
-          <p>Mis direcciones...</p>
+          <Address.AddAddress/>
+          <Separator height={80}/>
         </Tab.Pane>
       ),
     },
     {
-      menuItem: { icon: "settings", content: "Ajustes" },
+      menuItem: { key: 20, icon: "settings", content: "Ajustes" },
       render: () => (
         <Tab.Pane attached={false}>
           <Settings.ChangeNameForm/>
           <div className={styles.containerForms}>
             <Settings.ChangeEmailForm/>
+            <Settings.ChangePasswordForm/>
           </div>
           <Separator height={80}/>
         </Tab.Pane>
@@ -63,7 +66,8 @@ export default function account() {
     },
     {
       menuItem: {
-        icon: "logout",
+        key: 21,
+        icon: "log out",
         content: "",
         onClick: logout,
       }
