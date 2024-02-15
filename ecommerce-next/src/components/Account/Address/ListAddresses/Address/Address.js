@@ -1,8 +1,15 @@
 import { Button, Icon } from "semantic-ui-react";
 import styles from "./Address.module.scss";
+import { AddressForm } from "../../AddressForm";
+import { BasicModal } from "@/components/Shared";
+import { useState } from "react";
 
 export function Address(props) {
-    const { addressId, address } = props; 
+    const { addressId, address, onReload } = props;
+    const [showEdit, setShowEdit] = useState(false); 
+
+    const openCloseEdit = () => setShowEdit((prevState) => !prevState);
+    
   return (
     <>
       <div className={styles.address}>
@@ -17,7 +24,7 @@ export function Address(props) {
         </div>
 
         <div className={styles.actions}>
-            <Button primary icon>
+            <Button primary icon onClick={openCloseEdit}>
                 <Icon name="pencil"/>
             </Button>
             <Button primary icon>
@@ -25,6 +32,19 @@ export function Address(props) {
             </Button>
         </div>
       </div>
+
+      <BasicModal
+        show={showEdit}
+        onClose={openCloseEdit}
+        title="Editar dirección"
+      >
+        <AddressForm
+          onClose={openCloseEdit}
+          onReload={onReload}
+          addressId={addressId}
+          address={address}
+        />
+      </BasicModal>
     </>
   )
 }
