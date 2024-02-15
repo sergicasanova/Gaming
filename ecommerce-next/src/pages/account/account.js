@@ -3,6 +3,7 @@ import { Tab } from "semantic-ui-react";
 import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
+import { Separator  } from "@/components/Shared";
 import {
   Info,
   Settings,
@@ -52,7 +53,11 @@ export default function account() {
       menuItem: { icon: "settings", content: "Ajustes" },
       render: () => (
         <Tab.Pane attached={false}>
-          <Settings.ChangeNameForm />
+          <Settings.ChangeNameForm/>
+          <div className={styles.containerForms}>
+            <Settings.ChangeEmailForm/>
+          </div>
+          <Separator height={80}/>
         </Tab.Pane>
       ),
     },
