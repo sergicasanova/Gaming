@@ -33,7 +33,6 @@ export function BannerLastGamePublished() {
         game.attributes.price,
         game.attributes.discount
       );
-    console.log(price);
 
     return (
         <div className={styles.container}>
