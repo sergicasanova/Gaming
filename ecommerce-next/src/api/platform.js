@@ -18,4 +18,21 @@ export class Platform {
           throw error;
         }
     }
+
+    async getBySlug(slug) {
+      try {
+        //filtramos el slug y ponemos que sea equal al slug que le llegue, es decir la plataforma en concreto
+        const filters = `filters[slug][$eq]=${slug}`;
+        const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PLATFORM}?${filters}`;
+  
+        const response = await fetch(url);
+        const result = await response.json();
+  
+        if (response.status !== 200) throw result;
+  
+        return result.data[0];
+      } catch (error) {
+        throw error;
+      }
+    }
 }

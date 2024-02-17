@@ -12,6 +12,7 @@ export function GridGames(props) {
   return (
     <div className={styles.gridGames}>
       {map(games, (game) => (
+        //Con el link envolvemos todo el componente para ir al enlace correspondiente
         <Link
           key={game.id}
           href={`/${game.attributes.slug}`}
