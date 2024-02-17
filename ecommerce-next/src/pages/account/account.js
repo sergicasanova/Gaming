@@ -9,6 +9,7 @@ import {
   Info,
   Settings,
   Address,
+  Wishlist,
 } from "@/components/Account";
 
 
@@ -37,7 +38,8 @@ export default function account() {
       menuItem: "Lista de deseos",
       render: () => (
         <Tab.Pane attached={false}>
-          <p>Mi lista de deseos...</p>
+          <Wishlist/>
+          <Separator height={80}/>
         </Tab.Pane>
       ),
     },
