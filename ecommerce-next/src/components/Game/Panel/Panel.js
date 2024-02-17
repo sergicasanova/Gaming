@@ -6,7 +6,7 @@ import { WishlistIcon } from "@/components/Shared";
 
 export function Panel(props) {
     const { gameId, game } = props; 
-
+    console.log(props);
 
     const platform = game.platform.data;
     const buyPrice = fn.calcDiscountedPrice(game.price, game.discount);
@@ -53,7 +53,7 @@ export function Panel(props) {
                     Comprar ahora
                 </Button>
 
-                <WishlistIcon game={gameId} className={styles.heart} />
+                <WishlistIcon gameId={gameId} className={styles.heart} />
             </div>
         </div>
     </Container>

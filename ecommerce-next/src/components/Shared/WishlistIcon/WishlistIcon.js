@@ -8,7 +8,8 @@ import styles from "./WishlistIcon.module.scss";
 const wishlistCtrl = new Wishlist();
 
 export function WishlistIcon(props) {
-  const { gameId, className, removeCallback } = props;
+  console.log(props)
+  const { gameId, className, removeCallback, game } = props;
   const [hasWishlist, setHasWishlist] = useState(null);
   const { user } = useAuth();
 
@@ -16,8 +17,7 @@ export function WishlistIcon(props) {
     (async () => {
       try {
         const response = await wishlistCtrl.check(user.id, gameId);
-        // setHasWishlist(response);
-        console.log(response);
+        setHasWishlist(response);
       } catch (error) {
         setHasWishlist(false);
         console.error(error);
@@ -25,23 +25,23 @@ export function WishlistIcon(props) {
     })();
   }, [gameId]);
 
-  // const addWishlist = async () => {
-  //   const response = await wishlistCtrl.add(user.id, gameId);
-  //   setHasWishlist(response);
-  // };
+  const addWishlist = async () => {
+    const response = await wishlistCtrl.add(user.id, gameId);
+    setHasWishlist(response);
+  };
 
-  // const deleteWishlist = async () => {
-  //   try {
-  //     await wishlistCtrl.delete(hasWishlist.id);
-  //     setHasWishlist(false);
+  const deleteWishlist = async () => {
+    try {
+      await wishlistCtrl.delete(hasWishlist.id);
+      setHasWishlist(false);
 
-  //     if (removeCallback) {
-  //       removeCallback();
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+      if (removeCallback) {
+        removeCallback();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   if (hasWishlist === null) return null;
 
