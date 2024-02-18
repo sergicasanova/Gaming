@@ -18,6 +18,7 @@ export class Cart {
 
   getAll() {
     const response = localStorage.getItem(ENV.CART);
+
     if (!response) {
       return [];
     } else {
@@ -25,58 +26,58 @@ export class Cart {
     }
   }
 
-  // count() {
-  //   const response = this.getAll();
-  //   let count = 0;
+  count() {
+    const response = this.getAll();
+    let count = 0;
 
-  //   forEach(response, (item) => {
-  //     count += item.quantity;
-  //   });
+    forEach(response, (item) => {
+      count += item.quantity;
+    });
 
-  //   return count;
-  // }
+    return count;
+  }
 
-  // changeQuantity(gameId, quantity) {
-  //   const games = this.getAll();
-  //   const objIndex = games.findIndex((game) => game.id === gameId);
+  changeQuantity(gameId, quantity) {
+    const games = this.getAll();
+    const objIndex = games.findIndex((game) => game.id === gameId);
 
-  //   games[objIndex].quantity = quantity;
+    games[objIndex].quantity = quantity;
 
-  //   localStorage.setItem(ENV.CART, JSON.stringify(games));
-  // }
+    localStorage.setItem(ENV.CART, JSON.stringify(games));
+  }
 
-  // delete(gameId) {
-  //   const games = this.getAll();
-  //   const updateGames = games.filter((game) => game.id !== gameId);
+  delete(gameId) {
+    const games = this.getAll();
+    const updateGames = games.filter((game) => game.id !== gameId);
 
-  //   localStorage.setItem(ENV.CART, JSON.stringify(updateGames));
-  // }
+    localStorage.setItem(ENV.CART, JSON.stringify(updateGames));
+  }
 
-  // deleteAll() {
-  //   localStorage.removeItem(ENV.CART);
-  // }
+  deleteAll() {
+    localStorage.removeItem(ENV.CART);
+  }
 
-  // async paymentCart(token, products, idUser, address) {
-  //   try {
-  //     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PAYMENY_ORDER}`;
-  //     const params = {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         token,
-  //         products,
-  //         idUser,
-  //         addressShipping: address,
-  //       }),
-  //     };
+  async paymentCart(token, products, idUser, address) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PAYMENY_ORDER}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token,
+          products,
+          idUser,
+          addressShipping: address,
+        }),
+      };
 
-  //     const response = await authFetch(url, params);
+      const response = await authFetch(url, params);
 
-  //     return response;
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
