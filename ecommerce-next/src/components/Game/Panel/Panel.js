@@ -1,17 +1,30 @@
+import { useState } from "react";
 import styles from "./Panel.module.scss";
 import { Button, Container, Icon, Image } from "semantic-ui-react";
 import { fn } from "@/utils";
 import {ENV} from '../../../utils';
 import { WishlistIcon } from "@/components/Shared";
+import { useCart } from "@/hooks"
+
 
 export function Panel(props) {
-    const { gameId, game } = props; 
-    console.log(props);
+    const { gameId, game } = props;
+    const [loading, setLoading] = useState(false); 
+    const { addCart } = useCart();
 
     const platform = game.platform.data;
     const buyPrice = fn.calcDiscountedPrice(game.price, game.discount);
 
     const enlaceurlServer=`${ENV.SERVER_HOST}`;
+
+    const addCartWrapper = () => {
+        setLoading(true);
+        addCart(gameId);
+    
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      };
 
   return (
     <Container className={styles.panel}>
@@ -49,7 +62,7 @@ export function Panel(props) {
                     <span className={styles.price}>{buyPrice}€</span>
                 </div>
 
-                <Button primary fluid >
+                <Button primary fluid onClick={addCartWrapper} loading={loading}>
                     Comprar ahora
                 </Button>
 

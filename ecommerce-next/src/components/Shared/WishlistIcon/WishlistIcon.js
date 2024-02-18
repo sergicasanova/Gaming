@@ -8,7 +8,6 @@ import styles from "./WishlistIcon.module.scss";
 const wishlistCtrl = new Wishlist();
 
 export function WishlistIcon(props) {
-  console.log(props)
   const { gameId, className, removeCallback, game } = props;
   const [hasWishlist, setHasWishlist] = useState(null);
   const { user } = useAuth();
