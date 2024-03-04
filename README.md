@@ -16,7 +16,7 @@ comando: yarn develop
 dentro de la carpeta de backend una vez introducido el comando, entrar al enlace de localhost expuesto: http://localhost:1337/admin 
 a continuacion se ha de introducir usuario y contraseña para poder acceder a la base de datos de forma local:
 email-user: sergicasanova6798@gmail.com
-contraseña-password: sergicasanova98
+contraseña-password: Sergicasanova98
 
 iniciar frontend - ecommerce-next
 entrar en la carpeta ecommerce-next
