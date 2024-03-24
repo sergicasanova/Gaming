@@ -13,10 +13,16 @@ iniciar backend - ecommerce-strapi
 entrar en la carpeta ecommerce-strapi
 comando: yarn develop
 
-dentro de la carpeta de backend una vez introducido el comando, entrar al enlace de localhost expuesto: http://localhost:1337/admin 
-a continuacion se ha de introducir usuario y contraseña para poder acceder a la base de datos de forma local:
-email-user: sergicasanova6798@gmail.com
-contraseña-password: Sergicasanova98
+- Pueden haber problemas de librerias, es raro pero ha pasado en algunos ordenadores a la hora de iniciar el proyecto.
+- En este caso si llega a ocurrir, se recomienda la instalacion de yarn en cada una de las carpetas, tanto la de frontend como la de backend = 
+
+                            --- npm install yarn ---
+
+- Dentro de la carpeta de backend una vez introducido el comando, entrar al enlace de localhost expuesto: http://localhost:1337/admin 
+- para cada persona que se instale el programa debera crear una cuenta nueva en la base de datos, es decir una base de datos nuevo.
+- Para ello solo ha de crear una cuenta y al iniciar sesion introducir nuevamente los datos, lo que es la base de datos ya estara creada, solo se deberan introducir nuevos datos como bien puede ser un juego nuevo con sus imagenes y demas.
+
+- Se adjuntara una carpeta con algunas imagenes que se puedan usar para visualizar la pagina.
 
 iniciar frontend - ecommerce-next
 entrar en la carpeta ecommerce-next
