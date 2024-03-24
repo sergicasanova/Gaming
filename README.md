@@ -31,6 +31,7 @@ comando:
   Primero una vez creada la cuenta se han de introducir los datos en la parte del frontEnd
   deberan ir a la carpetas utils/contants
   dentro de constants deberen cambiar estos parametro si son diferentes, son como he dicho la conexion a la base de datos, esto sera necesario si quieren que les funcionen las imagenes de la pagina web por ejemplo, y todo en general.
+  
   ![image](https://github.com/sergicasanova/Gaming/assets/130445699/f781bd90-622b-401c-96ad-b2bf14070401)
   
 - Se adjuntara una carpeta con algunas imagenes que se puedan usar para visualizar la pagina.
