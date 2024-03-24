@@ -12,16 +12,16 @@ hacer en cada carpeta del proyecto, tanto en eccomerce-strapi como en eccomerce.
 
             npm install
 
+- Pueden haber problemas de librerias, es raro pero ha pasado en algunos ordenadores a la hora de iniciar el proyecto.
+- En este caso si llega a ocurrir, se recomienda la instalacion de yarn en cada una de las carpetas, tanto la de frontend como la de backend = 
+
+            npm install yarn 
+
 iniciar backend - ecommerce-strapi
 entrar en la carpeta ecommerce-strapi
 comando: 
 
             yarn develop
-
-- Pueden haber problemas de librerias, es raro pero ha pasado en algunos ordenadores a la hora de iniciar el proyecto.
-- En este caso si llega a ocurrir, se recomienda la instalacion de yarn en cada una de las carpetas, tanto la de frontend como la de backend = 
-
-            npm install yarn 
 
 - Dentro de la carpeta de backend una vez introducido el comando, entrar al enlace de localhost expuesto: http://localhost:1337/admin 
 - para cada persona que se instale el programa debera crear una cuenta nueva en la base de datos, es decir una base de datos nuevo.
